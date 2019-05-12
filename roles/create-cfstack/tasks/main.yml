@@ -1,0 +1,10 @@
+- name: Create/Update the Cloudera Cloudformation stack
+  cloudformation:
+    stack_name: "basicstack-cf"
+    state: present
+    disable_rollback: no
+    template: "roles/create-cfstack/files/stack-cheddar"
+    create_changeset: true
+    changeset_name: basic_cf_changeset
+    tags:
+      Stack: "Basic"          

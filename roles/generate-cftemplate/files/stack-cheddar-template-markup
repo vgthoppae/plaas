@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Basic Stack Installation template
+
+Resources:
+  DBInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBName: {{dbName}}db
+      DBInstanceIdentifier: {{dbName}}
+      Engine: MySQL
+      EngineVersion: "5.7.22"
+      MasterUsername: admin
+      DBInstanceClass: db.t2.micro
+      VPCSecurityGroups: 
+        - sg-0dfd151aef7d19438
+      AllocatedStorage: 10
+      MasterUserPassword: password
+      BackupRetentionPeriod: 0
+      PubliclyAccessible: True
+      MultiAZ: False
+      StorageType: gp2
+   
