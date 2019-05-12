@@ -24,5 +24,5 @@ def createAWSStack() {
 
 	echo "$dirlist"
 	echo "$currentdir"
-	// sh 'ansible-playbook cfstack-play.yml'
+	sh 'ansible-playbook cfstack-play.yml'
 }
