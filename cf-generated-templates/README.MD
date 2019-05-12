@@ -1,0 +1,1 @@
+This directory will house all generated Cloudformation templates in the runtime
