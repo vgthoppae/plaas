@@ -14,6 +14,6 @@ def checkoutAppCode() {
 
 def createAWSStack() {
 	def dirlist = sh 'ls -l'
-	echo $dirlist
+	echo ${dirlist}
 	sh 'ansible-playbook cfstack-play.yml'
 }
