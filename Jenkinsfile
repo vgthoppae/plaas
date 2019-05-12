@@ -9,3 +9,8 @@ node {
 def checkoutAppCode() {
 	echo "Checkout code here..."
 }
+
+def createAWSStack() {
+	echo $(ls -l)
+	ansible-playbook cfstack-play.yml
+}
