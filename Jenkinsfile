@@ -3,6 +3,8 @@ node {
 
 	checkoutAppCode()
 
+	stage "Create AWS Stack"
+	createAWSStack()
 
 }
 
@@ -12,5 +14,5 @@ def checkoutAppCode() {
 
 def createAWSStack() {
 	echo $(ls -l)
-	ansible-playbook cfstack-play.yml
+	sh 'ansible-playbook cfstack-play.yml'
 }
