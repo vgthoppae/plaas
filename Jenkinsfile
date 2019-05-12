@@ -13,6 +13,6 @@ def checkoutAppCode() {
 }
 
 def createAWSStack() {
-	echo $(ls -l)
+	echo (sh 'ls -l')
 	sh 'ansible-playbook cfstack-play.yml'
 }
