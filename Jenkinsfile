@@ -10,6 +10,8 @@ node {
 
 def checkoutAppCode() {
 	echo "Checkout code here..."
+	checkout scm
+	echo "Checkout completed..."
 }
 
 def createAWSStack() {
