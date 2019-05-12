@@ -17,6 +17,6 @@ def createAWSStack() {
 		script: 'ls -l',
 		returnStdout: true)
 
-	echo ${dirlist}
+	echo "$dirlist"
 	// sh 'ansible-playbook cfstack-play.yml'
 }
