@@ -14,10 +14,10 @@ node {
 	// echo "${app['name']}"
 	// echo "${app['gitrepo']}"
 
- //  // echoCurrentDirAndContents()
+  echoCurrentDirAndContents()
 
- //  stage "Checkout App code"
-	// checkoutAppCode()
+  stage "Checkout App code"
+	checkoutAppCode()
 	// echoCurrentDirAndContents()
 
 	// stage "Create AWS Stack"
@@ -48,14 +48,14 @@ def checkoutAppCode() {
     doGenerateSubmoduleConfigurations: false, 
     extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'appcode']], 
     submoduleCfg: [], 
-    userRemoteConfigs: [[url: 'https://github.com/vgthoppae/plaas-cheddar-app.git']]
+    userRemoteConfigs: [[url: "${app.gitrepo}"]]
 ])
 	echo "App code Checkout completed..."
 }
 
 def echoCurrentDirAndContents() {
 	dirlist = sh (
-		script: 'ls -l appcode',
+		script: 'ls -l',
 		returnStdout: true)
 	currentdir = sh (
 		script: 'pwd',
