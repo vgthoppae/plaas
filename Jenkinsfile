@@ -7,8 +7,6 @@ node {
 
   checkoutPipelineCode()
 
-	importAppMetadata()
-
 	def app = getAppMetadata()
 	echo "$app['name']"
 	echo "$app['gitrepo']"
