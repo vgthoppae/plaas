@@ -20,7 +20,7 @@ def checkoutAppCode() {
 	checkout ([$class: 'GitSCM', 
     branches: [[name: '*/vt-plaas']], 
     doGenerateSubmoduleConfigurations: false, 
-    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDirectory: '../appcode/']], 
+    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'appcode']], 
     submoduleCfg: [], 
     userRemoteConfigs: [[url: 'https://github.com/vgthoppae/plaas-cheddar-app.git']]
 ])
