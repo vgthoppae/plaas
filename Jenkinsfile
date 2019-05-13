@@ -17,7 +17,7 @@ node {
   echoCurrentDirAndContents()
 
   stage "Checkout App code"
-	checkoutAppCode()
+	checkoutAppCode(app)
 	// echoCurrentDirAndContents()
 
 	// stage "Create AWS Stack"
