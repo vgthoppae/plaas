@@ -27,7 +27,7 @@ def getAppMetadata() {
   def cheddar = "${appMetadata.cheddar}"
   echo "$cheddar"
   echo "$cheddar['gitrepo']"
-  return "$cheddar"
+  return cheddar
 }
 
 def cleanup() {
