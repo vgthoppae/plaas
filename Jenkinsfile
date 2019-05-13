@@ -1,15 +1,16 @@
 node {
 	echo "App being built is ${AppName}"
 
+	cleanup()
+
+	stage "Checkout Pipeline code"
+
+  checkoutPipelineCode()
+
 	importAppMetadata()
 
 	echo $cheddar
 
-	// cleanup()
-
-	// stage "Checkout Pipeline code"
-
- //  checkoutPipelineCode()
  //  // echoCurrentDirAndContents()
 
  //  stage "Checkout App code"
