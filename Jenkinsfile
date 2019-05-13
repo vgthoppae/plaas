@@ -9,7 +9,7 @@ node {
 
 	importAppMetadata()
 
-	echo $cheddar
+	// echo $cheddar
 
  //  // echoCurrentDirAndContents()
 
@@ -24,8 +24,8 @@ node {
 
 def importAppMetadata() {
 	def appMetadata = load 'app-metadata/cheddar.groovy'
-  def cheddar = ${appMetadata.cheddar}
-  echo $cheddar
+  def cheddar = "${appMetadata.cheddar}"
+  echo "$cheddar"
 }
 
 def cleanup() {
