@@ -8,8 +8,9 @@ node {
   checkoutPipelineCode()
 
 	def app = getAppMetadata()
-	echo "${app['name']}"
-	echo "${app['gitrepo']}"
+	echo "${app}"
+	// echo "${app['name']}"
+	// echo "${app['gitrepo']}"
 
  //  // echoCurrentDirAndContents()
 
