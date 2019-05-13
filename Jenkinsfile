@@ -1,7 +1,5 @@
 node {
-	parameters {
-		string(name: 'App Name', description: 'Application/Service Name to be built')
-	}
+	echo "App being built is ${params.AppName}"
 
 	cleanup()
 
