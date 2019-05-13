@@ -1,4 +1,6 @@
 node {
+	cleanup()
+
 	stage "Checkout Pipeline code"
 
   checkoutPipelineCode()
@@ -13,10 +15,10 @@ node {
 
 }
 
-// def cleanup() {
-// 	echo "Clean up the current working directory"
-// 	sh 'rm -rf ./*'
-// }
+def cleanup() {
+	echo "Clean up the current working directory"
+	sh 'rm -rf ./*'
+}
 
 def checkoutPipelineCode() {
 	echo "Checking out pipeline code..."
