@@ -1,9 +1,10 @@
 node {
-	stage "Checkout App code"
+	stage "Checkout Pipeline code"
 
   checkoutPipelineCode()
   echoCurrentDirAndContents('.')
 
+  stage "Checkout App code"
 	checkoutAppCode()
 	echoCurrentDirAndContents('./appcode')
 
@@ -11,6 +12,11 @@ node {
 	createAWSStack()
 
 }
+
+// def cleanup() {
+// 	echo "Clean up the current working directory"
+// 	sh 'rm -rf ./*'
+// }
 
 def checkoutPipelineCode() {
 	echo "Checking out pipeline code..."
