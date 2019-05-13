@@ -1,20 +1,30 @@
 node {
 	echo "App being built is ${AppName}"
 
-	cleanup()
+	importAppMetadata()
 
-	stage "Checkout Pipeline code"
+	echo $cheddar
 
-  checkoutPipelineCode()
-  // echoCurrentDirAndContents()
+	// cleanup()
 
-  stage "Checkout App code"
-	checkoutAppCode()
-	echoCurrentDirAndContents()
+	// stage "Checkout Pipeline code"
 
-	stage "Create AWS Stack"
-	createAWSStack()
+ //  checkoutPipelineCode()
+ //  // echoCurrentDirAndContents()
 
+ //  stage "Checkout App code"
+	// checkoutAppCode()
+	// echoCurrentDirAndContents()
+
+	// stage "Create AWS Stack"
+	// createAWSStack()
+
+}
+
+def importAppMetadata() {
+	def appMetadata = load 'app-meradata/cheddar.groovy'
+  def cheddar = appMetadata.cheddar
+  echo $cheddar
 }
 
 def cleanup() {
