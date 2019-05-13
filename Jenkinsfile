@@ -9,7 +9,9 @@ node {
 
 	importAppMetadata()
 
-	echo "$cheddar"
+	def app = getAppMetadata()
+	echo "$app['name']"
+	echo "$app['gitrepo']"
 
  //  // echoCurrentDirAndContents()
 
@@ -22,11 +24,12 @@ node {
 
 }
 
-def importAppMetadata() {
+def getAppMetadata() {
 	def appMetadata = load 'app-metadata/cheddar.groovy'
   def cheddar = "${appMetadata.cheddar}"
   echo "$cheddar"
   echo "$cheddar['gitrepo']"
+  return "$cheddar"
 }
 
 def cleanup() {
