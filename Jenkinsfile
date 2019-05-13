@@ -9,8 +9,8 @@ node {
 
 	def app = getAppMetadata()
 	echo "${app}"
-	// echo "${app.name}"
-	echo "${app['name']}"
+	echo "${app.name}"
+	// echo "${app['name']}"
 	// echo "${app['gitrepo']}"
 
  //  // echoCurrentDirAndContents()
@@ -26,9 +26,6 @@ node {
 
 def getAppMetadata() {
 	def appMetadata = load 'app-metadata/cheddar.groovy'
-  // def cheddar = "${appMetadata.cheddar}"
-  // echo "$cheddar"
-  // echo "${cheddar.gitrepo}"
   return appMetadata.cheddar
 }
 
