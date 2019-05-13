@@ -9,6 +9,7 @@ node {
 
 	def app = getAppMetadata()
 	echo "${app}"
+	echo "${app.name}"
 	// echo "${app['name']}"
 	// echo "${app['gitrepo']}"
 
