@@ -1,5 +1,5 @@
 node {
-	echo "App being built is ${env.AppName}"
+	echo "App being built is ${AppName}"
 
 	cleanup()
 
