@@ -5,8 +5,8 @@ Resources:
   DBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
-      DBName: {{dbName}}db
-      DBInstanceIdentifier: {{dbName}}
+      DBName: {{rds.dbName}}db
+      DBInstanceIdentifier: {{rds.dbName}}
       Engine: MySQL
       EngineVersion: "5.7.22"
       MasterUsername: admin

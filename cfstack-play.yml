@@ -1,96 +1,12 @@
 - hosts: localhost #run the script on the controller host
   gather_facts: false
 
-  # vars:
-  #   ami_dict:
-  #     "6":
-  #       jboss64-apache22: amifor61
-  #     "7":
-  #       jboss64-apache22: amifor70      
-
-  #   ver6: "defaultver"
-  vars:
-    dbName: dynamic
-
 
   roles:
   - generate-cftemplate
-  # - create-cfstack
+  - create-cfstack
 
-  # tasks:
-    # - name: Print
-    #   debug: 
-    #     msg: "AMI used is {{ apache_ami | default(ami_dict[rhel_ver]['jboss64-apache22']) }}"
-
-    # - name: Create/Update the Cloudera Cloudformation stack
-    #   cloudformation:
-    #     stack_name: "cloudera-stack-cf"
-    #     state: present
-    #     disable_rollback: no
-    #     template: "files/cloudera-root-cf"
-    #     template_parameters:
-    #         TargetServers: cm
-    #     tags:
-    #       Stack: "Cloudera"
-
-    # - name: Create/Update the Cloudera Cloudformation stack
-    #   cloudformation:
-    #     stack_name: "cloudera-stack-cf"
-    #     state: present
-    #     disable_rollback: no
-    #     template: "files/cloudera-root-cf"
-    #     create_changeset: true
-    #     changeset_name: cm_cf_changeset
-    #     tags:
-    #       Stack: "Cloudera"          
-
-
-    # - name: Check Condn2
-    #   debug:
-    #     msg: "rhel_ver is >=7"
-    #   when: rhel_ver >= '7'
-
-    # - name: Intentionally quitting
-    #   fail: msg="Quitting the playbook..."
-
-    # - name: Determining the Filesystem type
-    #   set_fact: 
-    #     filesystem_type: ext4
-    #     tmp_dir: /Users/vgthoppae/dev/gsa/incidents
-    #   when:
-    #     - ansible_distribution != 'RedHat '
-    #     - (ansible_distribution_version is defined) and (ansible_distribution_version > 10 )
-
-    # - name: Determining the Filesystem type
-    #   set_fact: 
-    #     filesystem_type: xfs
-    #   when:
-    #     - ansible_distribution != 'RedHat'
-    #     - (ansible_distribution_version is defined) and (ansible_distribution_version < 10 )
-
-    # - name: Print
-    #   debug: 
-    #     msg: "Filesystem type: {{ filesystem_type }} - {{ ansible_distribution_version }} - {{tmp_dir}}/todelete.txt"  
-
-    # - name: Assert demo
-    #   assert:
-    #     that:
-    #       - filesystem_type == 'ext' 
-    #     msg: "The test has failed"
-
-    # - name: Delete files
-    #   file:
-    #     path: "{{tmp_dir}}/todelete.txt"
-    #     state: absent
-
-    # - name: Append to a file
-    #   blockinfile:
-    #     path: /Users/vgthoppae/dev/gsa/ansible/scripts/toappend.txt
-    #     insertafter: EOF
-    #     block: |
-    #         repo:
-    #           path: /Users/vgthoppae/dev/gsa/ansible/scripts/toappend.txt
-
+ 
 
 
 

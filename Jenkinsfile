@@ -8,10 +8,23 @@ node {
 
 }
 
-def checkoutAppCode() {
-	echo "Checkout code here..."
+def checkoutPipelineCode() {
+	echo "Checking out pipeline code..."
 	checkout scm
-	echo "Checkout completed..."
+	echo "Pipeline code Checkout completed..."
+}
+
+def checkoutAppCode() {
+	echo "Checking out app code..."
+	checkout ([$class: 'GitSCM', 
+    branches: [[name: '*/vt-plaas']], 
+    doGenerateSubmoduleConfigurations: false, 
+    extensions: [[$class: 'CleanCheckout'],
+    						 [$class: 'RelativeTargetDirectory', relativeTargetDirectory: 'appcode']], 
+    submoduleCfg: [], 
+    userRemoteConfigs: [[url: 'https://github.com/vgthoppae/plaas-cheddar-app.git']]
+])
+	echo "App code Checkout completed..."
 }
 
 def createAWSStack() {
@@ -24,5 +37,5 @@ def createAWSStack() {
 
 	echo "$dirlist"
 	echo "$currentdir"
-	sh 'ansible-playbook cfstack-play.yml'
+	// sh 'ansible-playbook cfstack-play.yml ../appcode/deployment/params.yml'
 }
