@@ -3,7 +3,7 @@
     stack_name: "basicstack-cf"
     state: present
     disable_rollback: no
-    template: "roles/create-cfstack/files/stack-cheddar"
+    template: "cf-generated-templates/stack-cheddar-final"
     create_changeset: true
     changeset_name: basic_cf_changeset
     tags:
