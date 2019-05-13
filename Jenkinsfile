@@ -2,10 +2,10 @@ node {
 	stage "Checkout App code"
 
   checkoutPipelineCode()
-  echoCurrentDirAndContents
+  echoCurrentDirAndContents()
 
 	checkoutAppCode()
-	echoCurrentDirAndContents
+	echoCurrentDirAndContents()
 
 	stage "Create AWS Stack"
 	createAWSStack()
