@@ -27,7 +27,7 @@ node {
 def getAppMetadata() {
 	def appMetadata = load 'app-metadata/cheddar.groovy'
   // def cheddar = "${appMetadata.cheddar}"
-  echo "$cheddar"
+  // echo "$cheddar"
   // echo "${cheddar.gitrepo}"
   return appMetadata.cheddar
 }
