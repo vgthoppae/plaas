@@ -4,7 +4,7 @@ node {
 	stage "Checkout Pipeline code"
 
   checkoutPipelineCode()
-  echoCurrentDirAndContents()
+  // echoCurrentDirAndContents()
 
   stage "Checkout App code"
 	checkoutAppCode()
@@ -40,7 +40,7 @@ def checkoutAppCode() {
 
 def echoCurrentDirAndContents() {
 	dirlist = sh (
-		script: 'ls -l',
+		script: 'ls -l appcode',
 		returnStdout: true)
 	currentdir = sh (
 		script: 'pwd',
