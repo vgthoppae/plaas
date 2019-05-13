@@ -2,7 +2,10 @@ node {
 	stage "Checkout App code"
 
   checkoutPipelineCode()
+  echoCurrentDirAndContents
+
 	checkoutAppCode()
+	echoCurrentDirAndContents
 
 	stage "Create AWS Stack"
 	createAWSStack()
@@ -27,7 +30,7 @@ def checkoutAppCode() {
 	echo "App code Checkout completed..."
 }
 
-def createAWSStack() {
+def echoCurrentDirAndContents() {
 	dirlist = sh (
 		script: 'ls -l',
 		returnStdout: true)
@@ -37,5 +40,9 @@ def createAWSStack() {
 
 	echo "$dirlist"
 	echo "$currentdir"
+}
+
+def createAWSStack() {
+	
 	// sh 'ansible-playbook cfstack-play.yml ../appcode/deployment/params.yml'
 }
