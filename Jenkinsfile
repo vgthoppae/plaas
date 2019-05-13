@@ -8,8 +8,8 @@ node {
   checkoutPipelineCode()
 
 	def app = getAppMetadata()
-	echo "${app.name}"
-	echo "${app.gitrepo}"
+	echo "${app.'name'}"
+	echo "${app.'gitrepo'}"
 
  //  // echoCurrentDirAndContents()
 
@@ -26,7 +26,7 @@ def getAppMetadata() {
 	def appMetadata = load 'app-metadata/cheddar.groovy'
   def cheddar = "${appMetadata.cheddar}"
   echo "$cheddar"
-  echo "${cheddar.gitrepo}"
+  // echo "${cheddar.gitrepo}"
   return cheddar
 }
 
