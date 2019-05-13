@@ -24,7 +24,7 @@ node {
 
 def importAppMetadata() {
 	def appMetadata = load 'app-metadata/cheddar.groovy'
-  def cheddar = appMetadata.cheddar
+  def cheddar = ${appMetadata.cheddar}
   echo $cheddar
 }
 
