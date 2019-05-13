@@ -41,7 +41,7 @@ def checkoutPipelineCode() {
 	echo "Pipeline code Checkout completed..."
 }
 
-def checkoutAppCode() {
+def checkoutAppCode(app) {
 	echo "Checking out app code..."
 	checkout ([$class: 'GitSCM', 
     branches: [[name: '*/vt-plaas']], 
