@@ -9,7 +9,7 @@ node {
 
 	importAppMetadata()
 
-	echo "$cheddar"
+	// echo "$cheddar"
 
  //  // echoCurrentDirAndContents()
 
