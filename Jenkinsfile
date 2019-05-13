@@ -4,11 +4,11 @@ node {
 	stage "Checkout Pipeline code"
 
   checkoutPipelineCode()
-  echoCurrentDirAndContents('.')
+  echoCurrentDirAndContents()
 
   stage "Checkout App code"
 	checkoutAppCode()
-	echoCurrentDirAndContents('./appcode')
+	echoCurrentDirAndContents()
 
 	stage "Create AWS Stack"
 	createAWSStack()
@@ -38,9 +38,9 @@ def checkoutAppCode() {
 	echo "App code Checkout completed..."
 }
 
-def echoCurrentDirAndContents(dir) {
+def echoCurrentDirAndContents() {
 	dirlist = sh (
-		script: 'ls -l ${dir}',
+		script: 'ls -l',
 		returnStdout: true)
 	currentdir = sh (
 		script: 'pwd',
@@ -52,5 +52,5 @@ def echoCurrentDirAndContents(dir) {
 
 def createAWSStack() {
 	
-	// sh 'ansible-playbook cfstack-play.yml ../appcode/deployment/params.yml'
+	sh 'ansible-playbook cfstack-play.yml ./appcode/deployment/params.yml'
 }
