@@ -1,6 +1,7 @@
 node {
 	stage "Checkout App code"
 
+  checkoutPipelineCode()
 	checkoutAppCode()
 
 	stage "Create AWS Stack"
