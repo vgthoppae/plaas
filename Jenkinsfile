@@ -1,4 +1,8 @@
 node {
+	parameters {
+		string(name: 'App Name', description: 'Application/Service Name to be built')
+	}
+
 	cleanup()
 
 	stage "Checkout Pipeline code"
