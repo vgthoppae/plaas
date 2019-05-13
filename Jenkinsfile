@@ -2,10 +2,10 @@ node {
 	stage "Checkout App code"
 
   checkoutPipelineCode()
-  echoCurrentDirAndContents()
+  echoCurrentDirAndContents('.')
 
 	checkoutAppCode()
-	echoCurrentDirAndContents()
+	echoCurrentDirAndContents('./appcode')
 
 	stage "Create AWS Stack"
 	createAWSStack()
@@ -30,9 +30,9 @@ def checkoutAppCode() {
 	echo "App code Checkout completed..."
 }
 
-def echoCurrentDirAndContents() {
+def echoCurrentDirAndContents(dir) {
 	dirlist = sh (
-		script: 'ls -l',
+		script: 'ls -l ${dir}',
 		returnStdout: true)
 	currentdir = sh (
 		script: 'pwd',
