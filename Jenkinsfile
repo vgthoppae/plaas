@@ -1,6 +1,5 @@
 node {
-	choice(name: 'AppName', choices: ['Cheddar', 'Brick', 'Parmesan'], description: 'Pick something')
-	echo "App being built is ${AppName}"
+	echo "App being built is ${env.AppName}"
 
 	cleanup()
 
