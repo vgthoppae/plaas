@@ -8,21 +8,17 @@ node {
   checkoutPipelineCode()
 
 	def app = getAppMetadata()
-	echo "${app}"
-	echo "${app.name}"
-	echo "${app.gitrepo}"
-	// echo "${app['name']}"
-	// echo "${app['gitrepo']}"
+	
+	echo "Working on app ${app.name}"
 
   echoCurrentDirAndContents()
 
   stage "Checkout App code"
 	checkoutAppCode(app)
-	// echoCurrentDirAndContents()
+	echoCurrentDirAndContents()
 
-	// stage "Create AWS Stack"
-	// createAWSStack()
-
+	stage "Create AWS Stack"
+	createAWSStack()
 }
 
 def getAppMetadata() {
@@ -67,5 +63,5 @@ def echoCurrentDirAndContents() {
 
 def createAWSStack() {
 	
-	sh 'ansible-playbook cfstack-play.yml --extra-vars "@./appcode/deployment/params.yml"'
+	sh 'ansible-playbook cfstack-play.yml --extra-vars "@./appcode/deployment/params.yml" --extra-vars "app=${app}'
 }

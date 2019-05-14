@@ -1,4 +1,4 @@
 - name: Create Cloudformation template
   template:
-    src: ../files/stack-cheddar-template-markup
+    src: "../files/stack-{{app.name}}-template-markup"
     dest: cf-generated-templates/stack-cheddar-final
