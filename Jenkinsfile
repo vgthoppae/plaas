@@ -63,5 +63,6 @@ def echoCurrentDirAndContents() {
 
 def createAWSStack(app) {
 	echo "${app}"
-	// sh 'ansible-playbook cfstack-play.yml --extra-vars "@./appcode/deployment/params.yml" --extra-vars "app=${app}"'
+	env.app = "${app}"
+	sh 'ansible-playbook cfstack-play.yml --extra-vars "@./appcode/deployment/params.yml" --extra-vars "app=${env.app}"'
 }
