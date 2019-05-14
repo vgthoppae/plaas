@@ -1,7 +1,7 @@
 node {
 	echo "App being built is ${AppName}"
 
-	appname = "${AppName}".toLowerCase()
+	def appname = "${AppName}".toLowerCase()
 
 	cleanup()
 
@@ -23,10 +23,8 @@ node {
 	createAWSStack(app)
 }
 
-def getAppMetadata() {
-	// def appMetadata = load 'app-metadata/cheddar.groovy'
- //  return appMetadata.cheddar
-  def appMetadata = readYaml file: 'app-metadata/${appname}-params.yml'
+def getAppMetadata(appname) {
+  def appMetadata = readYaml file: 'app-metadata/cheddar-params.yml'
   return appMetadata.app;
 }
 
@@ -67,6 +65,5 @@ def echoCurrentDirAndContents() {
 
 def createAWSStack(app) {
 	echo "${app}"
-	env.app = "${app}"
-	sh 'ansible-playbook cfstack-play.yml --extra-vars "@./appcode/deployment/params.yml" --extra-vars "app=${env.app}"'
+	sh "ansible-playbook cfstack-play.yml --extra-vars '@./appcode/deployment/params.yml' --extra-vars 'app=${app}'"
 }
