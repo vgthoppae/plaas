@@ -1,13 +1,15 @@
 node {
 	echo "App being built is ${AppName}"
 
+	appname = "${AppName}".toLowerCase()
+
 	cleanup()
 
 	stage "Checkout Pipeline code"
 
   checkoutPipelineCode()
 
-	def app = getAppMetadata()
+	def app = getAppMetadata(appname)
 	
 	echo "Working on app ${app.name}"
 
@@ -22,8 +24,10 @@ node {
 }
 
 def getAppMetadata() {
-	def appMetadata = load 'app-metadata/cheddar.groovy'
-  return appMetadata.cheddar
+	// def appMetadata = load 'app-metadata/cheddar.groovy'
+ //  return appMetadata.cheddar
+  def appMetadata = readYaml file: 'app-metadata/${appname}-params.yml'
+  return appMetadata.app;
 }
 
 def cleanup() {
