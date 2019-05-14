@@ -18,7 +18,7 @@ node {
 	echoCurrentDirAndContents()
 
 	stage "Create AWS Stack"
-	createAWSStack()
+	createAWSStack(app)
 }
 
 def getAppMetadata() {
@@ -61,7 +61,7 @@ def echoCurrentDirAndContents() {
 	echo "$currentdir"
 }
 
-def createAWSStack() {
+def createAWSStack(app) {
 	
 	sh 'ansible-playbook cfstack-play.yml --extra-vars "@./appcode/deployment/params.yml" --extra-vars "app=${app}"'
 }
