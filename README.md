@@ -40,7 +40,7 @@ Why should one do this?
 * It is really really simple and easier than maintaining 100 piplines 
 * Dollars..Dollars..Dollars: A significant cost savings with upfront development and ongoing maintenance
 
-##Onboarding new apps
+## Onboarding new apps
 This is really the best feeling you would have once you got this implemented.
 
 * Write AWS cloudformation stack with jinja style markup templates remembering to use placeholder parameters for all variable sections
