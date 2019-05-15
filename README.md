@@ -9,7 +9,7 @@ Some projects prefer to build a separate pipeline for each app, which may not be
 ## How
 This is really not any groundbreaking idea but rather one out of simple common sense, most of the companies may be practicing a similar technique in some fashion or other. Hate to repeat the most obvious but here is a common pipeline principle outlined below.
 
-![A pipeline template] images/plaas1.png
+![A pipeline template] https://github.com/vgthoppae/plaas/master/images/plaas1.png
 
 A pipeline simply transports the code through different stages on successful execution (failure paths are not shown here) until deploying it in a target environment. The variant between different pipelines is of course the code in flight and several other parameters. Plass service makes generalization possible by identifying those variant parameters, externalizing them and feeding it to a stage as and when required. That's it. As I said, it is not really a big deal.
 
