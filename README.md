@@ -19,11 +19,14 @@ The laborious and somewhat complicated step is building the cloudformation templ
 
 Typically two git repositories are involved. In this implmentation,
 
-### <https://github.com/vgthoppae/plaas> is the repo for DevOps which consists of pipeline code and app specific params file
+* https://github.com/vgthoppae/plaas is the repo for DevOps which consists of pipeline code and app specific params file
 I use an app called cheddar which consists of a single RDS instance.
-#### <https://github.com/vgthoppae/plaas/app-metadata/cheddar-params.yml> contains system parameters maintained by the DevOps team
-### <https://github.com/vgthoppae/plaas-cheddar-app> is the repo for the cheddar application, which in this case contans nothing by the deployment params due to the brevity of the app
-#### <https://github.com/vgthoppae/plaas-cheddar-app/vt-plaas/deployment/params.yml> contains application parameters supplied by the application team
+
+... <https://github.com/vgthoppae/plaas/app-metadata/cheddar-params.yml> contains system parameters maintained by the DevOps team
+
+* <https://github.com/vgthoppae/plaas-cheddar-app> is the repo for the cheddar application, which in this case contans nothing by the deployment params due to the brevity of the app
+
+... <https://github.com/vgthoppae/plaas-cheddar-app/vt-plaas/deployment/params.yml> contains application parameters supplied by the application team
 
 App team would typically build a pipeline from a screen like this, where they choose their application name and hit the button. Needless to say, you can add other parameters to further customize the experience say adding the desired stages, choosing the repo, branch etc.,
 
@@ -43,7 +46,8 @@ This is really the best feeling you would have once you got this implemented.
 * Write AWS cloudformation stack with jinja style markup templates remembering to use placeholder parameters for all variable sections
 * Define system level parameters at plaas/app-metadata/<app name>-params.yaml
 * Have developers define app specific params in their repo at <project root>/deployment/params.yml
-* Add Je
+* Add the new app name in the pipeline parameter choice 
+* Rock and Roll...
 
 
 ## Questions
@@ -53,6 +57,9 @@ Well..you could still use this as a master pipeline and clone it to create other
 
 * I don't think this idea would scale up to an enterprise level project. Yours is a very trivial app..
 I highly doubt it, though you could argue that there is not enough ROI in implementing this for your project, which is a different story. But technically it is feasible. If you like code not getting repeated in 100 different places, you should take a look at it or a similar technique
+
+* Can I replace ansible steps with other tools?
+Yes, very well. Anything that helps support write markup templates and that can interface with AWS SDK.
 
 
 
