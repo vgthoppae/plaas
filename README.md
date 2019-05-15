@@ -11,7 +11,19 @@ This is really not any groundbreaking idea but rather one out of simple common s
 
 ![alt text](https://github.com/vgthoppae/plaas/blob/master/images/plaas-pipe.png "A pipeline template")
 
-A pipeline simply transports the code through different stages on successful execution (failure paths are not shown here) until deploying it in a target environment. The variant between different pipelines is of course the code in flight and several other parameters. Plass service makes generalization possible by identifying those variant parameters, externalizing them and feeding it to a stage as and when required. That's it. As I said, it is not really a big deal.
+A pipeline simply transports the code through different stages on successful execution (failure paths are not shown here) until deploying it in a target environment. The variant between different pipelines is of course the code in flight and several other parameters. Plass service makes generalization possible by identifying those variant parameters, externalizing them and feeding them to a stage as and when required. That's it. As I said, it is not really a big deal.
+
+All the initial stages through scanner are implemented with groovy while the next two stages leverage Ansible to take advantage of native integration with Jinja template library.
+
+The laborious and somewhat complicated step is building the cloudformation template. But you build a template once for a certain flavor of stack - for example a stack consisting of Apache, JBoss and DynamoDB (unique combination here...), or Apache, EC2, DMS, RDS, S3 etc., All the fields that would vary between apps are externalized and defined in app specific params file.
+
+Typically two git repositories are involved. In this implmentation,
+
+### <https://github.com/vgthoppae/plaas> is the repo for DevOps which consists of pipeline code and app specific params file
+I use an app called cheddar which consists of a single RDS instance.
+#### <https://github.com/vgthoppae/plaas/app-metadata/cheddar-params.yml> contains system parameters maintained by the DevOps team
+### <https://github.com/vgthoppae/plaas-cheddar-app> is the repo for the cheddar application, which in this case contans nothing by the deployment params due to the brevity of the app
+#### <https://github.com/vgthoppae/plaas-cheddar-app/vt-plaas/deployment/params.yml> contains application parameters supplied by the application team
 
 
 ## Why
