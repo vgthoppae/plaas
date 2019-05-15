@@ -38,7 +38,7 @@ Why should one do this?
 * There is zero repetition of code - you code once and apply it everywhere. Think of maintenance
 * You get clarity on what is going on and what are the parameters needed to run the pipeline
 * It is really really simple and easier than maintaining 100 piplines 
-
+* Dollars..Dollars..Dollars: A significant cost savings with upfront development and ongoing maintenance
 
 ##Onboarding new apps
 This is really the best feeling you would have once you got this implemented.
