@@ -1,10 +1,10 @@
 - name: Create/Update the Cloudera Cloudformation stack
   cloudformation:
-    stack_name: "basicstack-cf"
+    stack_name: "{{app.name}}-stack"
     state: present
     disable_rollback: no
-    template: "cf-generated-templates/stack-cheddar-final"
+    template: "cf-generated-templates/stack-{{app.name}}-final"
     create_changeset: true
-    changeset_name: basic_cf_changeset
+    changeset_name: "{{app.name}}_cf_changeset"
     tags:
-      Stack: "Basic"          
+      Stack: "{{app.name}}"          
