@@ -1,0 +1,12 @@
+- hosts: localhost #run the script on the controller host
+  gather_facts: false
+
+
+  roles:
+  - generate-cftemplate
+  - create-cfstack
+
+ 
+
+
+
