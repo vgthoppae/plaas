@@ -25,6 +25,9 @@ I use an app called cheddar which consists of a single RDS instance.
 ### <https://github.com/vgthoppae/plaas-cheddar-app> is the repo for the cheddar application, which in this case contans nothing by the deployment params due to the brevity of the app
 #### <https://github.com/vgthoppae/plaas-cheddar-app/vt-plaas/deployment/params.yml> contains application parameters supplied by the application team
 
+App team would typically build a pipeline from a screen like this, where they choose their application name and hit the button. Needless to say, you can add other parameters to further customize the experience say adding the desired stages, choosing the repo, branch etc.,
+
+![alt text](https://github.com/vgthoppae/plaas/blob/master/images/plaas-buildjob.png "Developers experience")
 
 ## Why
 Why should one do this? 
