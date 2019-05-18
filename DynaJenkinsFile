@@ -3,8 +3,6 @@ pipeline {
 
   def onboardedApps = readYaml file: 'app-metadata/onboard-app-params.yml'
   
-  print "${onboardedApps}"
-
   parameters {
     booleanParam(defaultValue: true, description: '', name: 'userFlag')
   }
@@ -12,7 +10,8 @@ pipeline {
   stages {
     stage("foo") {
       steps {
-          echo "flag: ${params.userFlag}"
+        print "${onboardedApps}"
+        echo "flag: ${params.userFlag}"
       }
     }
   }
