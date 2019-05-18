@@ -1,4 +1,4 @@
-pipeline {
+node {
   agent any
 
   def onboardedApps = readYaml file: 'app-metadata/onboard-app-params.yml'
