@@ -1,15 +1,19 @@
 pipeline {
-    agent any
+  agent any
 
-    parameters {
-        booleanParam(defaultValue: true, description: '', name: 'userFlag')
-    }
+  def onboardedApps = readYaml file: 'app-metadata/onboard-app-params.yml'
+  
+  echo "$onboardedApps"
 
-    stages {
-        stage("foo") {
-            steps {
-                echo "flag: ${params.userFlag}"
-            }
-        }
+  parameters {
+    booleanParam(defaultValue: true, description: '', name: 'userFlag')
+  }
+
+  stages {
+    stage("foo") {
+      steps {
+          echo "flag: ${params.userFlag}"
+      }
     }
+  }
 }
