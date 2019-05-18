@@ -1,7 +1,3 @@
 apps:
-	- name: Cheddar
-	  type: Microservice
-	- name: Brick
-		type: Angular
-	- name: Parmesan
-	  type: Microservice
+  - name: Cheddar
+    type: Microservice

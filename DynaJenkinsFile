@@ -1,18 +1,11 @@
 node {
-  agent any
-
-  def onboardedApps = readYaml file: 'app-metadata/onboard-app-params.yml'
-  
   parameters {
     booleanParam(defaultValue: true, description: '', name: 'userFlag')
   }
-
-  stages {
-    stage("foo") {
-      steps {
-        print "${onboardedApps}"
-        echo "flag: ${params.userFlag}"
-      }
-    }
-  }
+  
+    stage "foo"
+    checkout scm
+    def onboardedApps = readYaml file: 'app-metadata/onboard-app-params.yml'
+    print "${onboardedApps}"
+    echo "flag: ${params.userFlag}"
 }
